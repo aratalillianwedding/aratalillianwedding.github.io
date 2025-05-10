@@ -251,19 +251,17 @@ Navigation
 Hero
 ========================================================================== */
 .hero {
-  min-height: 750px;
-  background: url('../img/hero-min.jpg') center center;
+  min-height: 100vh;
+  background: url('../img/Background.png') 20%/30%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   position: relative;
 
-  /*.rsvp-btn {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-  }*/
+  .rsvp-btn {
+    margin-bottom: 70px;
+  }
   .down-arrow a {
     color: $txt-light;
   }
@@ -278,11 +276,14 @@ Hero
     margin-bottom: 80px;
   }
   .hero-content {
-    padding-top: 40%;
+    padding-top: 10%;
+    img {
+      margin-left:60%
+    }
   }
   .hero-content img {
     width: 55%;
-    margin-bottom: 12%;
+    // margin-bottom: 12%;
   }
 }
 .navigation {
@@ -293,7 +294,7 @@ Hero
 }
 .fixed {
   position: fixed;
-  background-color: rgba(55, 36, 40, .88);
+  background-color: $accent-color;
   z-index: 999;
   width: 100%;
 }
@@ -318,7 +319,7 @@ header {
     display: inline-block;
   }
   .logo img {
-    height: 19px;
+    height: 45px;
   }
   ul.primary-nav {
     margin: 0 0 0 75px;
@@ -332,7 +333,7 @@ header {
         padding-right: 25px;
 
         &:hover {
-          color: $accent-color;
+          color: $txt-secondary;
         }
       }
       &:last-child a {
@@ -348,7 +349,7 @@ header {
         color: $txt-light;
 
         &:hover {
-          color: $accent-color;
+          color: $txt-secondary;
         }
       }
     }
@@ -850,6 +851,53 @@ RSVP form
         color: $form-placeholder;
       }
     }
+  }
+}
+
+/* ==========================================================================
+Registry
+========================================================================== */
+.registry {
+  padding-bottom: 140px;
+}
+
+/* ==========================================================================
+Things To Do in Seattle
+========================================================================== */
+.Seattle {
+  padding-bottom: 140px;
+  button {
+    width: 90%;
+    color: $accent-color;
+    border: solid 2px #ffffff;
+  }
+  .ballard {
+    background-color: $ballard
+  }
+  .ballard:hover {
+    border: solid 2px $accent-color;
+    color: $accent-color;
+  }
+  .east {
+    background-color: $east;
+  }
+  .east:hover {
+    border: solid 2px $accent-color;
+    color: $accent-color;
+  }
+  .downtown {
+    background-color: $downtown;
+    color: $white-color
+  }
+  .downtown:hover {
+    border: solid 2px $accent-color;
+  }
+  .university {
+    background-color: $university;
+    color: $white-color
+  }
+  .university:hover {
+    border: solid 2px $accent-color;
   }
 }
 

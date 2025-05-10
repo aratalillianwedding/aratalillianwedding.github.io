@@ -1,32 +1,37 @@
 // Colours partial
 
 // Text colours
-$txt-primary: rgba(28, 54, 83, 0.6);
+$txt-primary: #495057;
 // body font
-$txt-secondary: #3D4351;
+$txt-secondary: #adb5bd;
 // heading font
-$txt-light: #fff;
+$txt-light: #e5e5e5;
 // header/hero
-$txt-accent: #ACB1B4;
-$form-placeholder: #BCC1C3;
+$txt-accent: #212529;
+$form-placeholder: #adb5bd;
 // form placeholder text
 // Global colours
-$accent-color: #e8ca6f;
+$accent-color: #2b0d40;
 // global accent colour
-$accent-color-hover: #d3b56a;
+$accent-color-hover: #8e56c7;
 // global accent colour hover
-$white-color: #fff;
+$white-color: #cfcfcf;
 $black-color: #000;
 // Typography colours
-$h2-color: #3D4351;
-$h3-color: #3D4351;
-$h5-color: #3D4351;
+$h2-color: #495057;
+$h3-color: #495057;
+$h5-color: #495057;
 // Layout colours
-$section-light: #fff;
+$section-light: #cfcfcf;
 $section-dark: #f8f9fd;
 $to-top-bg: #495061;
 $footer-primary: #3D4351;
 $footer-secondary: #373D4A;
 // Keylines
-$keyline-color: #E6E9EA;
-$footer-keyline-color: #4E566C;
+$keyline-color: #cfcfcf;
+$footer-keyline-color: #cfcfcf;
+// City Parts
+$ballard: #F5D756;
+$east: #56F5F2;
+$downtown: #587573;
+$university: #7A3A71; 

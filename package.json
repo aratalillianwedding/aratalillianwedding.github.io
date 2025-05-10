@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:rampatra/wedding-website.git"
+    "url": "git+ssh://git@github.com/rampatra/wedding-website.git"
   },
   "keywords": [
     "wedding",
@@ -23,11 +23,16 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
+    "live-server": "^1.2.2",
     "sass": "^1.25.0"
   },
   "dependencies": {
     "animate.css": "^3.7.2",
     "font-awesome": "^4.7.0",
+    "gulp-cli": "^3.0.0",
     "waypoints": "^4.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/rampatra/wedding-website/issues"
   }
 }
