@@ -336,6 +336,9 @@ header {
           color: $txt-secondary;
         }
       }
+      .disabled {
+        color: $txt-secondary;
+      }
       &:last-child a {
         padding-right: 0px;
       }

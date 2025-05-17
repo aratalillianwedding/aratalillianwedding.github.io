@@ -69,17 +69,18 @@
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img src="AE2.png" alt="Logo"></a></div>
+                <div class="logo"><a href="#"><img id="logo" src="AE_transparent.png" alt="Logo"></a></div>
                 <div class="header-nav">
                     <nav>
                         <ul class="primary-nav"> <!-- TODO -->
+                            <li><a href="#invitation">Information</a></li>
                             <li><a href="#intro">How we met</a></li>
                             <li><a href="#eng-pics">Engagement</a></li>
+                            <li><a class="disabled" h ref="#registry"> Registry</a></li>
                             <!-- <li class="hidden-sm hidden-xs"><a href="#video-bg">Glimpse of the city</a></li> -->
                         </ul>
                         <ul class="member-actions">
-                            <li><a href="#registry" class="login">Registy</a></li>
-                            <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li>
+                            <li><a h ref="#rsvp" class="btn-white btn-small disabled">RSVP</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -93,14 +94,14 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="hero-content text-center">
-                    <img src="AE2_transparent.png">
+                    <img src="AE_transparent.png">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4 hidden-xs"></div>
-            <div class="col-sm-4 hidden-xs text-center"><a href="#rsvp"
-                                                           class="btn btn-accent btn-large rsvp-btn">RSVP</a></div>
+            <div class="col-sm-4 hidden-xs text-center"><a h ref="#rsvp"
+                                                           class="btn btn-accent btn-large rsvp-btn disabled">RSVP</a></div>
             <div class="col-sm-4 hidden-xs"></div>
         </div>
     </div>
@@ -111,8 +112,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3>We're getting married!</h3>
-                <p>The place is Seattle, the date is unknown right now, but we're working on it</p>
+                <h2>We're getting married!</h2>
+                <h3>Church</h3>
+                <p>12600 84th Avenue NE Kirkland, WA 98034</p>
+                <h3>Reseption</h3>
+                <p>12525 Old Snohomish Monroe Rd, Snohomish, WA 98290</p>
+                <h3>Hotel</h3>
+                <p>To Be Determined</p>
             </div>
         </div>
     </div>
@@ -129,7 +135,19 @@
             <!-- <div class="col-md-3 hidden-sm hidden-xs"><img src="img/IMG_2317.jpg" class="wp1"></div> -->
             <div class="col-md-12">
                 <p>
-                    When one woman has a car and one man has a Costco card. Love is the only realistic out come.
+                    In the summer of 2022, our friend began a mission to get a Squishmallow for his girlfriend. Costco was the place to go, but he needed some help. His two friends Alex with a Costco membership and Eileen with a car stepped in. And so Alex and Eileen went on their first adventure together, which consisted of losing someone in the produce section, the question, “Why do people like Disney so much?”, and eventually a request for coffee sometime. That time was September 19, 2022, and we’ve been together ever since.
+                </p>
+                <p>
+                    Alex and Eileen spent their senior year together at the University of Washington in Seattle. While Alex finished his undergraduate and master’s degree, he showed Eileen the wide world of coffee, Lord of the Rings, backpacking, cooking, and (most unfortunately), the gym. For her part, Eileen told Alex more than he ever wanted to know about Disney and theme park rides, introduced him to football and (more importantly) tailgating, and even got him to eat a carb every once in a while.
+                </p>
+                <p>
+                    We haven’t lived in the same place since Eileen’s graduation, so travel has become an integral part of our story. Alex moved to Los Angeles for his job with the Space Force at the LA Air Force Base while Eileen “lives” in Corvallis, OR for her job as a geospatial analyst. Despite 5 hour car rides, 3 hour flights, and somehow constantly getting stuck in the San Francisco airport, we’ve persevered through all the challenges of long distance and are ecstatic to finally be living in the same place again soon.
+                </p>
+                <p>
+                    All these experiences, stories, and memories culminated on February 14th, 2025. Eileen was dog sitting in Seattle, and Alex had flown in to propose. Alex, as always, had perfectly planned the surprise and romantic evening, but fate had other ideas. Eileen got a migraine in the middle of the day and informed her friends that she wouldn’t be leaving the house. Not to be deterred on his mission, Alex called in backup, which happened to include the very same friend who had needed a ride to Costco. After deducing Eileen’s location, Alex finally made it to the front door, completely surprised Eileen, got down on one knee, and immediately got bowled over by three massive black labs. Through laughter and tears of joy, Eileen said yes and the rest is history.
+                </p>
+                <p>
+                    We can’t wait to share the next step in our lives together with our family and friends on January 17th, 2026 in Seattle where all our other big moments have taken place.
                 </p>
             </div>
             <!-- <div class="col-md-3 hidden-sm hidden-xs"><img src="img/DSD_0214.jpg" class="wp2"></div> -->
@@ -281,7 +299,10 @@
     </section> -->
 
 <section class="rsvp text-center" id="rsvp">
-
+    <div class="row">
+        <h3>RSVP</h3>
+        UNDER CONSTRUCTION!
+    </div><!--
     <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -294,9 +315,9 @@
                         <div id="add-to-cal"></div>
                     </div>
                 </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -349,10 +370,10 @@
                 </form>
             </div>
         </div>
-    </div>
-</section>
+    </div>-->
+</section> 
 
-<section class="Seattle text-center" id="Seattle">
+<!-- <section class="Seattle text-center" id="Seattle">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2 text-center"></div>
@@ -382,11 +403,11 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="registry text-center" id="registry">
     <div class="row">
-        <h3>Registy</h3>
+        <h3>Registry</h3>
         UNDER CONSTRUCTION!
     </div>
 </section>
