@@ -810,7 +810,15 @@ RSVP form
       border: solid 1px $keyline-color;
       text-align: left;
       position: relative;
+      background-color: #ffffff;
 
+      p {
+        width: 75%; padding: 10px; line-height: 17px;
+      }
+      .name {
+        padding-top: 0;
+        padding-left: 68px;
+      }
       i {
         color: $accent-color;
         font-size: 14px;
@@ -831,6 +839,19 @@ RSVP form
         top: 50%;
         transform: translateY(-50%);
         margin-left: 20px;
+      }
+      .rsvp-checkbox {
+        position: absolute;
+        left: 80%;
+        top: 25%;
+        padding-left: 0px;
+        margin: 0px;
+        width: 20%;
+        height: 50%;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        border: none;
       }
       input {
         padding-left: 68px;
@@ -862,6 +883,12 @@ Registry
 ========================================================================== */
 .registry {
   padding-bottom: 140px;
+}
+.registry-buttons {
+  a {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 /* ==========================================================================

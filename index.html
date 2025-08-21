@@ -76,11 +76,11 @@
                             <li><a href="#invitation">Information</a></li>
                             <li><a href="#intro">How we met</a></li>
                             <li><a href="#eng-pics">Engagement</a></li>
-                            <li><a class="disabled" h ref="#registry"> Registry</a></li>
+                            <li><a href="#registry"> Registry</a></li>
                             <!-- <li class="hidden-sm hidden-xs"><a href="#video-bg">Glimpse of the city</a></li> -->
                         </ul>
                         <ul class="member-actions">
-                            <li><a h ref="#rsvp" class="btn-white btn-small disabled">RSVP</a></li>
+                            <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -100,7 +100,7 @@
         </div>
         <div class="row">
             <div class="col-sm-4 hidden-xs"></div>
-            <div class="col-sm-4 hidden-xs text-center"><a h ref="#rsvp"
+            <div class="col-sm-4 hidden-xs text-center"><a href="#rsvp"
                                                            class="btn btn-accent btn-large rsvp-btn disabled">RSVP</a></div>
             <div class="col-sm-4 hidden-xs"></div>
         </div>
@@ -115,12 +115,20 @@
                 <h2>We're getting married!</h2>
                 <h3>Date</h3>
                 <p>January 17th, 2026</p>
-                <h3>Church</h3>
-                <p>12600 84th Avenue NE Kirkland, WA 98034</p>
+                <h3>Ceremony</h3>
+                <p>St. John Vianney Catholic Church | 12600 84th Avenue NE Kirkland, WA 98034 | 1 O'clock in the afternoon</p>
                 <h3>Reception</h3>
-                <p>12525 Old Snohomish Monroe Rd, Snohomish, WA 98290</p>
+                <p>Lord Hill Farms | 12525 Old Snohomish Monroe Rd, Snohomish, WA 98290 | 5 O'clock in the afternoon</p>
                 <h3>Hotel</h3>
-                <p>To Be Determined</p>
+                <p>The Heathman Hotel Kirkland | 220 Kirkland Ave, Kirkland, WA 98033</p>
+                <a class="btn-white btn-small" href="https://be.synxis.com/?adult=1&arrive=2026-01-16&chain=8517&child=0&currency=USD&depart=2026-01-18&group=59189A&hotel=7832&level=hotel&locale=en-US&productcurrency=USD&rooms=1"
+                    >Book Hotel Room</a>
+
+                <ul>
+                    <li>Booking within our block must be completed by December 26th, 2025</li>
+                    <li>Default dates are January 16th through January 18th</li>
+                    <li>Default dates may be adjusted during booking</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -299,12 +307,8 @@
             </div>
         </div>
     </section> -->
-
+<!-- 
 <section class="rsvp text-center" id="rsvp">
-    <div class="row">
-        <h3>RSVP</h3>
-        UNDER CONSTRUCTION!
-    </div><!--
     <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -325,8 +329,36 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <h3>What are you waiting for?</h3>
-                <p>We would greatly appreciate if you could RSVP before 1st of October 2025 TODO</p>
-                <form id="rsvp-form" class="rsvp-form"
+                <p>We would greatly appreciate if you could RSVP before the 1st of November 2025</p>
+                <p>If you need to make changes to your RSVP, simply submit again. We'll use your most resent RSVP!</p>
+                <form id="find-form" class="rsvp-form"
+                        action=""
+                        method="POST">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-user"></i><input name="name" class=""
+                                                                placeholder="Your name"
+                                                                required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code_find"
+                                                                class="" min="0"
+                                                                placeholder="Invite code"
+                                                                required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="alert-wrapper-find"></div>
+                    </div>
+                    <button class="btn-fill rsvp-btn" id="find-btn">
+                        Find Invite
+                    </button>
+                </form>
+                <form style="visibility: hidden;" id="rsvp-form" class="rsvp-form"
                       action=""
                       method="POST">
                     <div class="row">
@@ -339,32 +371,25 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Your name"
-                                                                 required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
-                                                                  max="4"
-                                                                  placeholder="Husband/Wife or kids"
-                                                                  required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
+                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code_rsvp"
                                                                 class="" min="0"
                                                                 placeholder="Invite code"
                                                                 required>
                             </div>
                         </div>
                     </div>
+                    <div id="rsvp-people">
+                    </div>
                     <div class="row">
-                        <div class="col-md-12" id="alert-wrapper"></div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-input-group">
+                                <p>We will use the provided bus from the hotel to the reseption venue</p>
+                                <input class="rsvp-checkbox" type="checkbox" name="transportation" id="transportation" class="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="alert-wrapper-rsvp"></div>
                     </div>
                     <button class="btn-fill rsvp-btn">
                         Répondez S'il Vous Plaît!
@@ -372,8 +397,8 @@
                 </form>
             </div>
         </div>
-    </div>-->
-</section> 
+    </div>
+</section>  -->
 
 <!-- <section class="Seattle text-center" id="Seattle">
     <div class="container-fluid">
@@ -410,7 +435,34 @@
 <section class="registry text-center" id="registry">
     <div class="row">
         <h3>Registry</h3>
-        UNDER CONSTRUCTION!
+        <div class="container registry-buttons">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <ul>
+                        <li><a href="https://www.amazon.com/wedding/share/lillianwedding" class="btn-white btn-small">Amazon</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <ul>
+                        <li><a href="https://www.crateandbarrel.com/gift-registry/Eileen-Arata-and-Alex-Lillian/r7377890" class="btn-white btn-small">Crate & Barrel</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <ul>
+                        <li><a href="https://www.williams-sonoma.com/registry/fzpsqm5js7/registry-list.html" class="btn-white btn-small">Williams Sonoma</a></li>
+                    </ul>
+                </div>
+            </div>
+            <h4>Charitable Options</h4>
+            <p>Please donate to a cause below at an amount comfortable for you and your family</p>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <ul>
+                        <li><a href="https://www.svdp.us/" class="btn-white btn-small">St. Vincent de Paul</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

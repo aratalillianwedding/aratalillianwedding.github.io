@@ -212,41 +212,81 @@ $(document).ready(function () {
         e.preventDefault();
         var data = $(this).serialize();
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+        $('#alert-wrapper-rsvp').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== '4b320c8a4b97025a69064d80225a3ef9') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
+        if (MD5($('#invite_code_rsvp').val()) !== '4b320c8a4b97025a69064d80225a3ef9') {
+            $('#alert-wrapper-rsvp').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            // var xhr = new XMLHttpRequest();
-            // xhr.open('POST', "https://script.google.com/macros/s/AKfycbz6nTDrUDVzcpbcT6iBhl4MRigF9x-4liony0A1DkIxgTRXXFhb8Zrs6FUHMUltVK2p/exec");
-            // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            // xhr.onreadystatechange = function() {
-            //     console.log(xhr);
-            //     if (xhr.readyState !== 4 || xhr.status !== 200) {
-            //     } else {
-            //         $('#alert-wrapper').html('');
-            //         $('#rsvp-modal').modal('show');
-            //     }
-            // }
-
-            $.post('https://script.google.com/macros/s/AKfycbyudXqlSexNHqXJsGZuVFjcO5yy1OLA_nJmSivVRp7JEIvxBOKJsFkuqBCCvtLdlh-x/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbzGrF3GUemSIDa4Gw3_EK51IMCkbk5mTGFViRoGOusDWRJV0RAj_P1rkR5FNhc9KykP/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
-                        $('#alert-wrapper').html(alert_markup('danger', data.message));
+                        $('#alert-wrapper-rsvp').html(alert_markup('danger', data.message));
                     } else {
-                        $('#alert-wrapper').html('');
+                        $('#alert-wrapper-rsvp').html('');
                         $('#rsvp-modal').modal('show');
                     }
                 })
                 .fail(function (data) {
                     console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                    $('#alert-wrapper-rsvp').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
                 });
         }
     });
 
+    $('#find-form').on('submit', function (e) {
+        $('#find-btn').css("visibility", "hidden")
+        e.preventDefault();
+        var data = $(this).serialize();
+
+        $('#alert-wrapper-find').html(alert_markup('info', '<strong>Just a sec!</strong> We are searching for your invite.'));
+
+        if (MD5($('#invite_code_find').val()) !== '4b320c8a4b97025a69064d80225a3ef9') {
+            $('#alert-wrapper-find').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
+            $('#find-btn').css("visibility", "visible")
+        } else {
+            $.post('https://script.google.com/macros/s/AKfycbzGrF3GUemSIDa4Gw3_EK51IMCkbk5mTGFViRoGOusDWRJV0RAj_P1rkR5FNhc9KykP/exec', data)
+                .done(function (data) {
+                    console.log(data);
+                    if (data.result === "error") {
+                        $('#alert-wrapper-find').html(alert_markup('danger', data.message));
+                        $('#find-btn').css("visibility", "visible")
+                    } else if (data.result === "failour") {
+                        $('#alert-wrapper-find').html(alert_markup('danger', "Name Not Found"));
+                        $('#find-btn').css("visibility", "visible")
+                    } else {
+                        $('#alert-wrapper-find').html('');
+                        $('#rsvp-form').css("visibility", "visible")
+                        $('#find-form').css("visibility", "hidden")
+                        data.data.split(",").forEach(function test(d) {
+                            var name = d.replace("\"", "").replace("[", "").replace("]", "").replace("\"", "")
+                            $("<div class=\"row\">\
+                            <div class=\"col-md-12 col-sm-12\">\
+                                <div class=\"form-input-group\">\
+                                    <i class=\"fa fa-user\"></i><p class=\"name\"><br>" + name + "</p><input class=\"rsvp-checkbox\" type=\"checkbox\" name=\""+name+"\">\
+                                </div>\
+                            </div>").appendTo("#rsvp-people");
+                        })
+
+                        $("<div class=\"row\">\
+                            <div class=\"col-md-12 col-sm-12\">\
+                                <div class=\"form-input-group\">\
+                                    <i class=\"fa fa-user\"></i><input name=\"plusone\" \
+                                                                        placeholder=\"Additional Person\">\
+                                </div>\
+                        </div>").appendTo("#rsvp-people");
+                    }
+                })
+                .fail(function (data) {
+                    console.log(data);
+                    $('#alert-wrapper-find').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                });
+        }
+    });
+
+
 });
+
 
 /********************** Extras **********************/
 
