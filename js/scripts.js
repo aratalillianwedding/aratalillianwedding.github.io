@@ -211,13 +211,14 @@ $(document).ready(function () {
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
+        $("form input").css("border", "0px")
 
-        $('#alert-wrapper-rsvp').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+        $('#alert-wrapper-rsvp').html(alert_markup('info', '<strong>Just a second!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code_rsvp').val()) !== '4b320c8a4b97025a69064d80225a3ef9') {
+        if (false) {//MD5($('#invite_code_rsvp').val()) !== '4b320c8a4b97025a69064d80225a3ef9') {
             $('#alert-wrapper-rsvp').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbzGrF3GUemSIDa4Gw3_EK51IMCkbk5mTGFViRoGOusDWRJV0RAj_P1rkR5FNhc9KykP/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbxCyuS6NX07XU_5AuTMGqktKFVAerDC7Yvhsk2sJfSVUBUW1KQ2Lpe0qHMrrCPyx-U1/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
@@ -238,14 +239,15 @@ $(document).ready(function () {
         $('#find-btn').css("visibility", "hidden")
         e.preventDefault();
         var data = $(this).serialize();
+        $("form input").css("border", "0px")
 
-        $('#alert-wrapper-find').html(alert_markup('info', '<strong>Just a sec!</strong> We are searching for your invite.'));
+        $('#alert-wrapper-find').html(alert_markup('info', '<strong>Just a second!</strong> We are searching for your invite.'));
 
-        if (MD5($('#invite_code_find').val()) !== '4b320c8a4b97025a69064d80225a3ef9') {
+        if (false) { //MD5($('#invite_code_find').val()) !== '4b320c8a4b97025a69064d80225a3ef9') {
             $('#alert-wrapper-find').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
             $('#find-btn').css("visibility", "visible")
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbzGrF3GUemSIDa4Gw3_EK51IMCkbk5mTGFViRoGOusDWRJV0RAj_P1rkR5FNhc9KykP/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbxCyuS6NX07XU_5AuTMGqktKFVAerDC7Yvhsk2sJfSVUBUW1KQ2Lpe0qHMrrCPyx-U1/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
@@ -259,20 +261,50 @@ $(document).ready(function () {
                         $('#rsvp-form').css("visibility", "visible")
                         $('#find-form').css("visibility", "hidden")
                         data.data.split(",").forEach(function test(d) {
-                            var name = d.replace("\"", "").replace("[", "").replace("]", "").replace("\"", "")
+                            var name_readable = d.replace("\"", "").replace("[", "").replace("]", "").replace("\"", "")
+                            var name = d.replace("\"", "").replace("[", "").replace("]", "").replace("\"", "").replace(" ", "")
                             $("<div class=\"row\">\
                             <div class=\"col-md-12 col-sm-12\">\
-                                <div class=\"form-input-group\">\
-                                    <i class=\"fa fa-user\"></i><p class=\"name\"><br>" + name + "</p><input class=\"rsvp-checkbox\" type=\"checkbox\" name=\""+name+"\">\
+                                <div id=\""+name+"\" class=\"form-input-group\">\
+                                    <i class=\"fa fa-user\"></i><p class=\"name\"><b>" + name_readable + "</b></p><div style=\"display: inline-block; padding-left: 68px\"><div class=\"typewriter\"><i>Will Not Attend</i></div></div><div class=\"rsvp-checkbox\"><label class=\"switch\"><input class=\"rsvp-checkbox-inner\" type=\"checkbox\" name=\""+name_readable+"\"><span class=\"slider\"></span></lable></div>\
                                 </div>\
                             </div>").appendTo("#rsvp-people");
                         })
+
+                        $('.rsvp-checkbox-inner').change(function() {
+                            var name = this.name.replace(" ", "")
+                            if (this.checked) {
+                                typer = $("#" + name + " > div > .typewriter")
+                                $("#" + name + " > div > .typewriter > i").text("Will Attend")
+                                typer.removeClass("typewriter")
+                                void this.offsetWidth
+                                typer.addClass("typewriter")
+                            } else if (!this.checked) {
+                                typer = $("#" + name + " > div > .typewriter")
+                                $("#" + name + " > div > .typewriter > i").text("Will Not Attend")
+                                typer.removeClass("typewriter")
+                                void this.offsetWidth
+                                typer.addClass("typewriter")
+                            } else {
+                                console.log("ERROR: rsvp-checkbox-inner has no element checked!")
+                            }
+                        });                
 
                         $("<div class=\"row\">\
                             <div class=\"col-md-12 col-sm-12\">\
                                 <div class=\"form-input-group\">\
                                     <i class=\"fa fa-user\"></i><input name=\"plusone\" \
                                                                         placeholder=\"Additional Person\">\
+                                </div>\
+                        </div>").appendTo("#rsvp-people");
+                        $("<div class=\"row\">\
+                            <div class=\"col-md-12 col-sm-12\">\
+                            <div class=\"form-info-box\">\
+                            <p>Dinner will be served buffet style.<br>Does anyone in your party have dietary restrictions?</p>\
+                            </div>\
+                                <div class=\"form-input-group\">\
+                                    <i class=\"fa fa-cutlery\"></i><input name=\"food\" \
+                                                                        placeholder=\"Dietary Restrictions\">\
                                 </div>\
                         </div>").appendTo("#rsvp-people");
                     }
@@ -282,6 +314,9 @@ $(document).ready(function () {
                     $('#alert-wrapper-find').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
                 });
         }
+    });
+    $("form input").on("invalid", function(event) {
+        this.style="border: solid 3px red"
     });
 
 

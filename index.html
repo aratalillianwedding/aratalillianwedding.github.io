@@ -67,6 +67,10 @@
 <![endif]-->
 <section class="hero">
     <section class="navigation">
+        <div class="notification-box">
+            <h3>Please RSVP before the <b>6th of December 2025</b></h3>
+        </div>
+    
         <header>
             <div class="header-content">
                 <div class="logo"><a href="#"><img id="logo" src="AE_transparent.png" alt="Logo"></a></div>
@@ -100,8 +104,9 @@
         </div>
         <div class="row">
             <div class="col-sm-4 hidden-xs"></div>
-            <div class="col-sm-4 hidden-xs text-center"><a href="#rsvp"
-                                                           class="btn btn-accent btn-large rsvp-btn disabled">RSVP</a></div>
+            <div class="col-sm-4 hidden-xs text-center">
+                <a href="#rsvp"
+                                                           class="btn btn-accent btn-large rsvp-btn">RSVP</a></div>
             <div class="col-sm-4 hidden-xs"></div>
         </div>
     </div>
@@ -307,7 +312,7 @@
             </div>
         </div>
     </section> -->
-<!-- 
+
 <section class="rsvp text-center" id="rsvp">
     <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -317,8 +322,13 @@
                     </button>
                     <div class="section-padding">
                         <h3>Thank you!</h3>
-                        <p>We are glad to see you join us on our big day.</p>
+                        <p>We are glad to see you join us on our big day!</p>
                         <div id="add-to-cal"></div>
+                        <div>
+                            <p>Need a hotel?</p>
+                            <a class="btn-white btn-small" href="https://be.synxis.com/?adult=1&arrive=2026-01-16&chain=8517&child=0&currency=USD&depart=2026-01-18&group=59189A&hotel=7832&level=hotel&locale=en-US&productcurrency=USD&rooms=1"
+                            >Book Hotel Room</a>        
+                        </div>
                     </div>
                 </div>
             </div>
@@ -329,27 +339,37 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <h3>What are you waiting for?</h3>
-                <p>We would greatly appreciate if you could RSVP before the 1st of November 2025</p>
-                <p>If you need to make changes to your RSVP, simply submit again. We'll use your most resent RSVP!</p>
+
+                <div class="form-info-box">
+                    <p>Please RSVP before the <b>6th of December 2025</b></p>
+                </div>
+
+                <div class="form-info-box">
+                    <p>If you need to make changes to your RSVP, simply submit again. We'll use your most recent RSVP!</p>
+                </div>
                 <form id="find-form" class="rsvp-form"
                         action=""
                         method="POST">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-info-box">
+                                <p>Please type your name (ex. John Doe, not The Doe Family)<br>You will RSVP for your entire party</p>
+                            </div>
+            
                             <div class="form-input-group">
                                 <i class="fa fa-user"></i><input name="name" class=""
-                                                                placeholder="Your name"
+                                                                placeholder="Your Full Name"
                                                                 required>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <!-- <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
                                 <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code_find"
                                                                 class="" min="0"
                                                                 placeholder="Invite code"
                                                                 required>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-md-12" id="alert-wrapper-find"></div>
@@ -362,28 +382,31 @@
                       action=""
                       method="POST">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-12 col-sm-12">
                             <div class="form-input-group">
                                 <i class="fa fa-envelope"></i><input type="email" name="email" class=""
                                                                      placeholder="Your email"
                                                                      required>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <!-- <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
                                 <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code_rsvp"
                                                                 class="" min="0"
                                                                 placeholder="Invite code"
                                                                 required>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div id="rsvp-people">
                     </div>
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
+                            <div class="form-info-box">
+                                <p>Transportation from the hotel to the reception venue will be provided on the day of the wedding 30 minutes before the reception begins.</p>
+                            </div>
                             <div class="form-input-group">
-                                <p>We will use the provided bus from the hotel to the reseption venue</p>
+                                <p>We will use the provided transportation.</p>
                                 <input class="rsvp-checkbox" type="checkbox" name="transportation" id="transportation" class="">
                             </div>
                         </div>
@@ -398,7 +421,7 @@
             </div>
         </div>
     </div>
-</section>  -->
+</section>
 
 <!-- <section class="Seattle text-center" id="Seattle">
     <div class="container-fluid">

@@ -113,6 +113,18 @@ Animations
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: $accent-color; }
+}
+
 @keyframes pulse2 {
   0% {
     transform: scale(1.1);
@@ -250,6 +262,16 @@ Navigation
 /* ==========================================================================
 Hero
 ========================================================================== */
+.notification-box {
+  background-color: $accent-color;
+  padding: 8px;
+  margin-bottom: 10px;
+  h3 {
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+  }
+}
 .hero {
   min-height: 100vh;
   background: url('../img/Background.png') 20%/30%;
@@ -793,6 +815,25 @@ RSVP form
 ========================================================================== */
 .rsvp {
   padding-bottom: 140px;
+
+  .form-info-box{
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: solid 1px $keyline-color;
+    text-align: left;
+    position: relative;
+    background-color: #ffffff;
+    p {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+  }
+
   .rsvp-form {
     .rsvp-btn {
       padding: 15px 0;
@@ -816,14 +857,16 @@ RSVP form
         width: 75%; padding: 10px; line-height: 17px;
       }
       .name {
-        padding-top: 0;
+        padding: 0;
         padding-left: 68px;
+        padding-top: 10px;
+        margin: 0;
       }
-      i {
+      .fa {
         color: $accent-color;
         font-size: 14px;
       }
-      i:after {
+      .fa:after {
         content: "";
         height: 30px;
         width: 1px;
@@ -833,17 +876,29 @@ RSVP form
         left: 30px;
         transform: translateY(-50%);
       }
-      i.fa-user, i.fa-users, i.fa-envelope, .fa-key {
+      i.fa {
         font-size: 14px;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         margin-left: 20px;
       }
+
+      .typewriter {
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        // border-right: .15em solid $accent-color; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        // margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em; /* Adjust as needed */
+        animation: 
+          typing 1s steps(20, end),
+          // blink-caret .75s step-end infinite;
+      }
+
       .rsvp-checkbox {
         position: absolute;
         left: 80%;
-        top: 25%;
+        top: 20%;
         padding-left: 0px;
         margin: 0px;
         width: 20%;
@@ -852,7 +907,61 @@ RSVP form
         -webkit-border-radius: 6px;
         border-radius: 6px;
         border: none;
+
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+        }
+        
+        /* Hide default HTML checkbox */
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        
+        /* The slider */
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: $txt-primary;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: $white-color;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        
+        input:checked + .slider {
+          background-color: $accent-color;
+        }
+        
+        input:focus + .slider {
+          box-shadow: 0 0 1px $accent-color;
+        }
+        
+        input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+        }        
       }
+
       input {
         padding-left: 68px;
         width: 100%;
