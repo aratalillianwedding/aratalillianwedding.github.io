@@ -263,9 +263,9 @@ Navigation
 Hero
 ========================================================================== */
 .notification-box {
+  position: absolute;
   background-color: $accent-color;
-  padding: 8px;
-  margin-bottom: 10px;
+  width: 100%;
   h3 {
     color: #ffffff;
     margin: 0;

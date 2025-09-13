@@ -187,20 +187,20 @@ $(document).ready(function () {
             title: "Eileen and Alex's Wedding",
 
             // Event start date
-            start: new Date('Jan 15, 2026 17:00'), // TODO change to real date
+            start: new Date('Jan 17, 2026 13:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Jan 16, 2026 00:00'),
+            end: new Date('Jan 17, 2026 23:00'),
 
             // Event Address
-            address: 'TBD!',
+            address: '12600 84th Avenue NE Kirkland, WA 98034',
 
             // Event Description
-            description: "So excited to see you at our wedding! For any questions please contact Alex at 858 204 5616."
+            description: "So excited to see you at our wedding! For any questions please visit our website at aratalillianwedding.github.io contact the couple at lillian.arata.wedding@gmail.com."
         }
     });
 

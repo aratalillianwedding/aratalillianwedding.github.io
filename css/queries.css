@@ -53,6 +53,13 @@
         visibility: visible;
     }
 
+    .notification-box {
+        background-color: unset;
+    }
+    .notification-box h3 {
+        color: #2b0d40;
+    }
+
     header .nav-wrapper {
         display: absolute;
     }
