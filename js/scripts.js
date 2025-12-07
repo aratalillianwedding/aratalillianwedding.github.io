@@ -223,7 +223,11 @@ $(document).ready(function () {
                     console.log(data);
                     if (data.result === "error") {
                         $('#alert-wrapper-rsvp').html(alert_markup('danger', data.message));
+                    } else if (Object.keys(data).length <= 2) {
+                        $('#alert-wrapper-rsvp').html('');    
+                        window.location.reload();                    
                     } else {
+                        console.log(Object.keys(data).length)
                         $('#alert-wrapper-rsvp').html('');
                         $('#rsvp-modal').modal('show');
                     }
